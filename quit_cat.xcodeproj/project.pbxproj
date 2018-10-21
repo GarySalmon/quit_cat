@@ -15,6 +15,7 @@
 		4E614F732172628E00EC31B4 /* quit_catTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E614F722172628E00EC31B4 /* quit_catTests.swift */; };
 		4E614F7E2172628E00EC31B4 /* quit_catUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E614F7D2172628E00EC31B4 /* quit_catUITests.swift */; };
 		4E614F8C217262E500EC31B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E614F8B217262E500EC31B4 /* GoogleService-Info.plist */; };
+		4E6F5039217BB31B0006B9BC /* usersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6F5038217BB31A0006B9BC /* usersData.swift */; };
 		B4E14DA623C2C86B1FA3B6BB /* Pods_quit_catTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFF2278B54CA42CAA5D3B6F /* Pods_quit_catTests.framework */; };
 		BA0EF8A7EBBCD75F1D37CB55 /* Pods_quit_cat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5C89219B69A1A0A248DEE /* Pods_quit_cat.framework */; };
 		F7AFA2CB17AF8A81B583A352 /* Pods_quit_catUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81E7B6BB656BD00FB27D91DB /* Pods_quit_catUITests.framework */; };
@@ -59,6 +60,7 @@
 		4E614F7D2172628E00EC31B4 /* quit_catUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quit_catUITests.swift; sourceTree = "<group>"; };
 		4E614F7F2172628E00EC31B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E614F8B217262E500EC31B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4E6F5038217BB31A0006B9BC /* usersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usersData.swift; sourceTree = "<group>"; };
 		6125D7C9ABEACA06EBB71D3D /* Pods-quit_catTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quit_catTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quit_catTests/Pods-quit_catTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81E7B6BB656BD00FB27D91DB /* Pods_quit_catUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quit_catUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 				4E614F662172628E00EC31B4 /* LaunchScreen.storyboard */,
 				4E614F8B217262E500EC31B4 /* GoogleService-Info.plist */,
 				4E614F692172628E00EC31B4 /* Info.plist */,
+				4E6F5038217BB31A0006B9BC /* usersData.swift */,
 			);
 			path = quit_cat;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			files = (
 				4E614F602172628E00EC31B4 /* ViewController.swift in Sources */,
 				4E614F5E2172628E00EC31B4 /* AppDelegate.swift in Sources */,
+				4E6F5039217BB31B0006B9BC /* usersData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

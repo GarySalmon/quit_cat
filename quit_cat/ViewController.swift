@@ -9,88 +9,56 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
 
+class ViewController: UIViewController {
+    
     var db: Firestore!
+    fileprivate let usersData = UsersData.init(dictionary:)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
-        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func showMessage(sender: UIButton){
+    @IBAction func jfsadoifjsiaodf(_ sender: Any) {
         
     }
-    @IBAction func createAccount(_sender: Any){
-        /*
-        var ref: DocumentReference? = nil
-        var userData: [String : AnyObject] = [String : AnyObject]()
-        userData["uid"] = "ref" as AnyObject
-        userData["facebook"] = "love892009@gmail.com" as AnyObject
-        userData["google"] = "love892009@gmail.com" as AnyObject
-        userData["name"] = "Gary" as AnyObject
-        userData["age"] = "21" as AnyObject
-        userData["birthday"] = "1997/08/10" as AnyObject
-        userData["smokeage"] = "5" as AnyObject
-        userData["smokeaddiction"] = "5" as AnyObject
-        userData["smokebrand"] = "Caster" as AnyObject
-        userData["gold"] = "9999" as AnyObject
-        userData["score"] = "12301" as AnyObject
-        userData["fish"] = "58" as AnyObject
-        userData["shit"] = "10" as AnyObject
-        userData["userimage"] = "XX" as AnyObject
-        ref = db.collection("Users").addDocument(data: userData)
-        { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID)")
-            }
-        }
-        let tempUid = ref!.documentID
-        ref?.updateData( ["uid": tempUid ])
-        { err in
-            if let err = err {
-                print("Error updating document: \(err)")
-            } else {
-                print("Document successfully updated")
-            }
-        }
-        
-        let alertController = UIAlertController(title: "Success", message: ref!.documentID , preferredStyle: UIAlertController.Style.alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:nil))
-        present(alertController,animated: true,completion: nil)
-        */
-        
-    }
-
     
+    
+    @IBAction func sadfjwoef(_ sender: Any) {
+        queryFunc(userID: "N23K1DpIYFH5Q38MOunx")
+    }
+    
+    
+    
+    //func createAccount
     func createAccountFunc(facebook: String , google: String , name: String , age: Int , birthday: String ,
                            smokeage: Int , smokeaddiction: Int , smokebrand: String ,
-                           gold: Int , score: Int , fish: Int , shit: Int , useriamge: UIImage){
+                           gold: Int , score: Int , fish: Int , shit: Int , useriamge: String){
         var ref: DocumentReference? = nil
-        var userData: [String : AnyObject] = [String : AnyObject]()
-        userData["uid"] = "ref" as AnyObject
-        userData["facebook"] = facebook as AnyObject
-        userData["google"] = google as AnyObject
-        userData["name"] = name as AnyObject
-        userData["age"] = age as AnyObject
-        userData["birthday"] = birthday as AnyObject
-        userData["smokeage"] = smokeage as AnyObject
-        userData["smokeaddiction"] = smokeaddiction as AnyObject
-        userData["smokebrand"] = smokebrand as AnyObject
-        userData["gold"] = gold as AnyObject
-        userData["score"] = score as AnyObject
-        userData["fish"] = fish as AnyObject
-        userData["shit"] = shit as AnyObject
-        userData["userimage"] = useriamge as AnyObject
-        ref = db.collection("Users").addDocument(data: userData)
+        var userData: [String : Any] = [String : Any]()
+        userData["uid"] = "ref" as String
+        userData["facebook"] = "facebook" as String
+        userData["google"] = "google" as String
+        userData["name"] = "name" as String
+        userData["age"] = 1232 as Int
+        userData["birthday"] = "birthday" as String
+        userData["smokeage"] = 18 as Int
+        userData["smokeaddiction"] = 18 as Int
+        userData["smokebrand"] = "smokebrand" as String
+        userData["gold"] = 19 as Int
+        userData["score"] = 124 as Int
+        userData["fish"] = 18 as Int
+        userData["shit"] = 18 as Int
+        userData["userimage"] = "useriamge" as String
+        
+        ref = db.collection("Users").addDocument(data: ["uid" : "null"])
         { err in
             if let err = err {
                 print("Error adding document: \(err)")
@@ -98,7 +66,9 @@ class ViewController: UIViewController {
                 print("Document added with ID: \(ref!.documentID)")
             }
         }
+        
         let tempUid = ref!.documentID
+        
         ref?.updateData( ["uid": tempUid ])
         { err in
             if let err = err {
@@ -107,26 +77,81 @@ class ViewController: UIViewController {
                 print("Document successfully updated")
             }
         }
+        userData["uid"] = tempUid as String
+        var refUserdata: DocumentReference? = nil
+        refUserdata = db.collection("Users").document(tempUid).collection("userdata").document("userdata")
+        refUserdata?.setData(userData)
+        { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("User Data update success")
+            }
+        }
+        
+        
         let alertController = UIAlertController(title: "Success", message: ref!.documentID , preferredStyle: UIAlertController.Style.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:nil))
         present(alertController,animated: true,completion: nil)
+        
     }
     
-    
-    func queryBithdayFunc(userID: String) -> String{
-        var birthday:String = ""
-        let queryRef = db.collection("Users").document(userID)
-        queryRef.getDocument { (DocumentSnapshot , Error) in
-            guard let DocumentSnapshot = DocumentSnapshot else {
-                print("Error \(Error!)")
-                return
+    func queryFunc(userID: String){
+        let docRef = db.collection("Users").document(userID).collection("userdata").document("userdata")
+        docRef.getDocument { (document, error) in
+            if let usersData = document.flatMap({
+                $0.data().flatMap({ (data) in
+                    return UsersData(dictionary: data)
+                })
+            }) {
+                print("Users: \(usersData)")
+                
+            } else {
+                print("Document does not exist")
             }
-            birthday = DocumentSnapshot.get("birthday") as! String
-            print(birthday)
         }
-        return birthday
+    }
+}
+
+fileprivate struct UsersData {
+    
+    let uid:String?
+    let facebook:String?
+    let google:String?
+    let name:String?
+    let age:Int?
+    let birthday:String?
+    let smokeage:Int?
+    let smokeaddiction:Int?
+    let smokebrand:String?
+    let gold:Int?
+    let score:Int?
+    let fish:Int?
+    let shit:Int?
+    let userimage:String?
+    
+    func ewrare() -> String{
+        return self.facebook!
     }
     
-    
+        init?(dictionary: [String: Any]) {
+            
+        self.uid = dictionary["uid"] as? String
+        self.facebook = dictionary["facebook"] as? String
+        self.google = dictionary["google"] as? String
+        self.name = dictionary["name"] as? String
+        self.age = dictionary["age"] as? Int
+        self.birthday = dictionary["birthday"] as? String
+        self.smokeage = dictionary["smokeage"] as? Int
+        self.smokeaddiction = dictionary["smokeaddiction"] as? Int
+        self.smokebrand = dictionary["smokebrand"] as? String
+        self.gold = dictionary["gold"] as? Int
+        self.score = dictionary["score"] as? Int
+        self.fish = dictionary["fish"] as? Int
+        self.shit = dictionary["shit"] as? Int
+        self.userimage = dictionary["userimage"] as? String
+    }
 }
+
+
 

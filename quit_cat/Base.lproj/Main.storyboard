@@ -18,12 +18,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6q-Mp-Ni0">
-                                <rect key="frame" x="79" y="189" width="174" height="136"/>
+                                <rect key="frame" x="170" y="242" width="174" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="createAccountWith_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nQJ-S8-gaf"/>
-                                    <action selector="showMessageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZeC-h8-VGy"/>
+                                    <action selector="sadfjwoef:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mde-7H-kfq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMe-b9-bLF">
+                                <rect key="frame" x="37" y="193" width="68" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="jfsadoifjsiaodf:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hhw-hP-rIu"/>
                                 </connections>
                             </button>
                         </subviews>
