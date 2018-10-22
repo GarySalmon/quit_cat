@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E4F7693217DF56B005D4A3B /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F7692217DF56B005D4A3B /* Collection.swift */; };
 		4E614F5E2172628E00EC31B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E614F5D2172628E00EC31B4 /* AppDelegate.swift */; };
 		4E614F602172628E00EC31B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E614F5F2172628E00EC31B4 /* ViewController.swift */; };
 		4E614F632172628E00EC31B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E614F612172628E00EC31B4 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		42C24BD5C2EA0C2670F1945D /* Pods-quit_catUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quit_catUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quit_catUITests/Pods-quit_catUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		42E2313941B2DDD9B222F7A5 /* Pods-quit_catTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quit_catTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-quit_catTests/Pods-quit_catTests.release.xcconfig"; sourceTree = "<group>"; };
 		4B6C0947281481E77BBD7D9C /* Pods-quit_cat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quit_cat.release.xcconfig"; path = "Pods/Target Support Files/Pods-quit_cat/Pods-quit_cat.release.xcconfig"; sourceTree = "<group>"; };
+		4E4F7692217DF56B005D4A3B /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		4E614F5A2172628E00EC31B4 /* quit_cat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quit_cat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E614F5D2172628E00EC31B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E614F5F2172628E00EC31B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				4E614F8B217262E500EC31B4 /* GoogleService-Info.plist */,
 				4E614F692172628E00EC31B4 /* Info.plist */,
 				4E6F5038217BB31A0006B9BC /* usersData.swift */,
+				4E4F7692217DF56B005D4A3B /* Collection.swift */,
 			);
 			path = quit_cat;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				4E614F572172628E00EC31B4 /* Frameworks */,
 				4E614F582172628E00EC31B4 /* Resources */,
 				B5C04BA426CB16D9CB52C32C /* [CP] Embed Pods Frameworks */,
+				CEF0F8BC089CEDF35369C95B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -357,9 +361,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-quit_cat/Pods-quit_cat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -373,9 +380,12 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -411,6 +421,32 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CEF0F8BC089CEDF35369C95B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-quit_cat/Pods-quit_cat-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-quit_cat/Pods-quit_cat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -421,6 +457,7 @@
 				4E614F602172628E00EC31B4 /* ViewController.swift in Sources */,
 				4E614F5E2172628E00EC31B4 /* AppDelegate.swift in Sources */,
 				4E6F5039217BB31B0006B9BC /* usersData.swift in Sources */,
+				4E4F7693217DF56B005D4A3B /* Collection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

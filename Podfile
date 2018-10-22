@@ -10,6 +10,9 @@ target 'quit_cat' do
 pod 'Firebase/Auth'
 pod 'Firebase/Core'
 pod 'Firebase/Firestore'
+pod 'FirebaseUI/Auth'
+pod 'FirebaseUI/Google'
+pod 'SDWebImage'
 
 
   target 'quit_catTests' do

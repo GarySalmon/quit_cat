@@ -7,41 +7,76 @@
 //
 
 import Foundation
-import UIKit
-
-class usersData {
+/*
+struct usersData {
     
-    var uID: String = ""
-    var facebook: String = ""
-    var google: String = ""
-    var name: String = ""
-    var age: Int = 0
-    private var _birthday: String = "1234"
-
-    
-    var birthday: String{
-        set{
-            self._birthday = newValue
-        }
-        get{
-            return self._birthday
-        }
-        
-        
+    var uid:String
+    var facebook:String
+    var google:String
+    var name:String
+    var age:Int
+    var birthday:String
+    var smokeage:Int
+    var smokeaddiction:Int
+    var smokebrand:String
+    var gold:Int
+    var score:Int
+    var fish:Int
+    var shit:Int
+    var userimage:String
+    var dictionary: [String: Any] {
+        return [
+            "uid" : uid,
+            "facebook" : facebook,
+            "google" : google,
+            "name": name,
+            "age" : age,
+            "birthday" : birthday,
+            "smokeage" : smokeage,
+            "smokeaddiction" : smokeaddiction,
+            "smokebrand" : smokebrand,
+            "gold" : gold,
+            "score" : score,
+            "fish" : fish,
+            "shit" : shit,
+            "userimage" : userimage
+        ]
     }
-    var smokeage: Int = 0
-    var smokeaddiction: Int = 0
-    var smokebrand: Int = 0
-    var gold: Int = 0
-    var score: Int = 0
-    var fish: Int = 0
-    var shit: Int = 0
-    var userimage: UIImage = UIImage.init()
-    
-    func getbirthday() -> String {
-        return _birthday
-    }
-    
-    
-
 }
+
+extension UsersData: DocumentSerializable {
+    
+    init?(dictionary: [String: Any]) {
+        guard let uid = dictionary["uid"] as? String else{return nil}
+        let facebook = dictionary["facebook"] as? String
+        let google = dictionary["google"] as? String
+        let name = dictionary["name"] as? String
+        let age = dictionary["age"] as? Int
+        let birthday = dictionary["birthday"] as? String
+        let smokeage = dictionary["smokeage"] as? Int
+        let smokeaddiction = dictionary["smokeaddiction"] as? Int
+        let smokebrand = dictionary["smokebrand"] as? String
+        let gold = dictionary["gold"] as? Int
+        let score = dictionary["score"] as? Int
+        let fish = dictionary["fish"] as? Int
+        let shit = dictionary["shit"] as? Int
+        let userimage = dictionary["userimage"] as? String
+    
+        self.init(uid: uid,
+                  facebook: facebook,
+                  google: google,
+                  name: name,
+                  age: age,
+                  birthday:birthday,
+                  smokeage:smokeage,
+                  smokeaddiction:smokeaddiction,
+                  smokebrand:smokebrand,
+                  gold:gold,
+                  score:score,
+                  fish:fish,
+                  shit:shit,
+                  userimage:userimage)
+    }
+        
+}
+*/

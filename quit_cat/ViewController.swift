@@ -8,12 +8,12 @@
 
 import UIKit
 import Firebase
-
+import Foundation
 
 class ViewController: UIViewController {
     
     var db: Firestore!
-    fileprivate let usersData = UsersData.init(dictionary:)
+    let userID:String = "N23K1DpIYFH5Q38MOunx"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,112 +30,182 @@ class ViewController: UIViewController {
         
     }
     
-    
     @IBAction func sadfjwoef(_ sender: Any) {
-        queryFunc(userID: "N23K1DpIYFH5Q38MOunx")
+        let birthday:String = queryBirthdayFunc()
+        print(birthday)
     }
     
     
     
-    //func createAccount
-    func createAccountFunc(facebook: String , google: String , name: String , age: Int , birthday: String ,
-                           smokeage: Int , smokeaddiction: Int , smokebrand: String ,
-                           gold: Int , score: Int , fish: Int , shit: Int , useriamge: String){
-        var ref: DocumentReference? = nil
-        var userData: [String : Any] = [String : Any]()
-        userData["uid"] = "ref" as String
-        userData["facebook"] = "facebook" as String
-        userData["google"] = "google" as String
-        userData["name"] = "name" as String
-        userData["age"] = 1232 as Int
-        userData["birthday"] = "birthday" as String
-        userData["smokeage"] = 18 as Int
-        userData["smokeaddiction"] = 18 as Int
-        userData["smokebrand"] = "smokebrand" as String
-        userData["gold"] = 19 as Int
-        userData["score"] = 124 as Int
-        userData["fish"] = 18 as Int
-        userData["shit"] = 18 as Int
-        userData["userimage"] = "useriamge" as String
-        
-        ref = db.collection("Users").addDocument(data: ["uid" : "null"])
-        { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID)")
+    //func queryName
+    func queryNameFunc() -> String{
+        var name:String = ""
+        let queryRef = db.collection("Users").document(userID).collection("userdata").document("userdata")
+        queryRef.getDocument { (DocumentSnapshot , Error) in
+            guard let DocumentSnapshot = DocumentSnapshot else {
+                print("Error \(Error!)")
+                return
             }
+            name = DocumentSnapshot.get("name") as! String
         }
-        
-        let tempUid = ref!.documentID
-        
-        ref?.updateData( ["uid": tempUid ])
-        { err in
-            if let err = err {
-                print("Error updating document: \(err)")
-            } else {
-                print("Document successfully updated")
+        return name
+    }
+    //func queryage
+    func queryAgeFunc() -> Int{
+        var age:Int = 0
+        let queryRef = db.collection("Users").document(userID).collection("userdata").document("userdata")
+        queryRef.getDocument { (DocumentSnapshot , Error) in
+            guard let DocumentSnapshot = DocumentSnapshot else {
+                print("Error \(Error!)")
+                return
             }
+            age = DocumentSnapshot.get("age") as! Int
         }
-        userData["uid"] = tempUid as String
-        var refUserdata: DocumentReference? = nil
-        refUserdata = db.collection("Users").document(tempUid).collection("userdata").document("userdata")
-        refUserdata?.setData(userData)
-        { err in
-            if let err = err {
-                print("Error updating document: \(err)")
-            } else {
-                print("User Data update success")
+        return age
+    }
+    //func queryBirthday
+    func queryBirthdayFunc() -> String{
+        var birthday:String = ""
+        let queryRef = db.collection("Users").document(userID).collection("userdata").document("userdata")
+        queryRef.getDocument { (DocumentSnapshot , Error) in
+            guard let DocumentSnapshot = DocumentSnapshot else {
+                print("Error \(Error!)")
+                return
             }
+            birthday = DocumentSnapshot.get("birthday") as! String
         }
-        
-        
-        let alertController = UIAlertController(title: "Success", message: ref!.documentID , preferredStyle: UIAlertController.Style.alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:nil))
-        present(alertController,animated: true,completion: nil)
-        
+        return birthday
+    }
+    //func querySmokeage
+    func querySmokeageFunc() -> Int{
+        var smokeage:Int = 0
+        let queryRef = db.collection("Users").document(userID).collection("userdata").document("userdata")
+        queryRef.getDocument { (DocumentSnapshot , Error) in
+            guard let DocumentSnapshot = DocumentSnapshot else {
+                print("Error \(Error!)")
+                return
+            }
+            smokeage = DocumentSnapshot.get("smokeage") as! Int
+        }
+        return smokeage
+    }
+    //func querySmokeaddiction
+    func querySmokeaddictionFunc() -> Int{
+        var smokeaddiction:Int = 0
+        let queryRef = db.collection("Users").document(userID).collection("userdata").document("userdata")
+        queryRef.getDocument { (DocumentSnapshot , Error) in
+            guard let DocumentSnapshot = DocumentSnapshot else {
+                print("Error \(Error!)")
+                return
+            }
+            smokeaddiction = DocumentSnapshot.get("smokeaddiction") as! Int
+        }
+        return smokeaddiction
+    }
+    //func querySmokebrand
+    func querySmokebrandFunc() -> String{
+        var smokebrand:String = ""
+        let queryRef = db.collection("Users").document(userID).collection("userdata").document("userdata")
+        queryRef.getDocument { (DocumentSnapshot , Error) in
+            guard let DocumentSnapshot = DocumentSnapshot else {
+                print("Error \(Error!)")
+                return
+            }
+            smokebrand = DocumentSnapshot.get("smokebrand") as! String
+        }
+        return smokebrand
+    }
+    //func queryGold
+    func queryGoldFunc() -> Int{
+        var gold:Int = 0
+        let queryRef = db.collection("Users").document(userID).collection("userdata").document("userdata")
+        queryRef.getDocument { (DocumentSnapshot , Error) in
+            guard let DocumentSnapshot = DocumentSnapshot else {
+                print("Error \(Error!)")
+                return
+            }
+            gold = DocumentSnapshot.get("gold") as! Int
+        }
+        return gold
+    }
+    //func queryScore
+    func queryScoreFunc() -> Int{
+        var score:Int = 0
+        let queryRef = db.collection("Users").document(userID).collection("userdata").document("userdata")
+        queryRef.getDocument { (DocumentSnapshot , Error) in
+            guard let DocumentSnapshot = DocumentSnapshot else {
+                print("Error \(Error!)")
+                return
+            }
+            score = DocumentSnapshot.get("score") as! Int
+        }
+        return score
+    }
+    //func queryFish
+    func queryFishFunc() -> Int{
+        var fish:Int = 0
+        let queryRef = db.collection("Users").document(userID).collection("userdata").document("userdata")
+        queryRef.getDocument { (DocumentSnapshot , Error) in
+            guard let DocumentSnapshot = DocumentSnapshot else {
+                print("Error \(Error!)")
+                return
+            }
+            fish = DocumentSnapshot.get("fish") as! Int
+        }
+        return fish
+    }
+    //func queryShit
+    func queryShitFunc() -> Int{
+        var shit:Int = 0
+        let queryRef = db.collection("Users").document(userID).collection("userdata").document("userdata")
+        queryRef.getDocument { (DocumentSnapshot , Error) in
+            guard let DocumentSnapshot = DocumentSnapshot else {
+                print("Error \(Error!)")
+                return
+            }
+            shit = DocumentSnapshot.get("shit") as! Int
+        }
+        return shit
+    }
+    //func queryUserImage
+    func queryUserImageFunc() -> String{
+        var userimage:String = ""
+        let queryRef = db.collection("Users").document(userID).collection("userdata").document("userdata")
+        queryRef.getDocument { (DocumentSnapshot , Error) in
+            guard let DocumentSnapshot = DocumentSnapshot else {
+                print("Error \(Error!)")
+                return
+            }
+            userimage = DocumentSnapshot.get("userimage") as! String
+        }
+        return userimage
     }
     
-    func queryFunc(userID: String){
-        let docRef = db.collection("Users").document(userID).collection("userdata").document("userdata")
-        docRef.getDocument { (document, error) in
-            if let usersData = document.flatMap({
-                $0.data().flatMap({ (data) in
-                    return UsersData(dictionary: data)
-                })
-            }) {
-                print("Users: \(usersData)")
-                
-            } else {
-                print("Document does not exist")
-            }
-        }
-    }
+    
+    
+    
+    
+    
+ 
+    
+    
+    
+    
 }
 
-fileprivate struct UsersData {
-    
-    let uid:String?
-    let facebook:String?
-    let google:String?
-    let name:String?
-    let age:Int?
-    let birthday:String?
-    let smokeage:Int?
-    let smokeaddiction:Int?
-    let smokebrand:String?
-    let gold:Int?
-    let score:Int?
-    let fish:Int?
-    let shit:Int?
-    let userimage:String?
-    
-    func ewrare() -> String{
-        return self.facebook!
-    }
+
+
+
+
+
+
+
+
+
+/*
+struct UsersData {
     
         init?(dictionary: [String: Any]) {
-            
         self.uid = dictionary["uid"] as? String
         self.facebook = dictionary["facebook"] as? String
         self.google = dictionary["google"] as? String
@@ -152,6 +222,64 @@ fileprivate struct UsersData {
         self.userimage = dictionary["userimage"] as? String
     }
 }
-
-
-
+*/
+/*
+ //func createAccount
+func createAccountFunc(facebook: String , google: String , name: String , age: Int , birthday: String ,
+                       smokeage: Int , smokeaddiction: Int , smokebrand: String ,
+                       gold: Int , score: Int , fish: Int , shit: Int , useriamge: String){
+    var ref: DocumentReference? = nil
+    var userData: [String : Any] = [String : Any]()
+    userData["uid"] = "ref" as String
+    userData["facebook"] = "facebook" as String
+    userData["google"] = "google" as String
+    userData["name"] = "name" as String
+    userData["age"] = 1232 as Int
+    userData["birthday"] = "birthday" as String
+    userData["smokeage"] = 18 as Int
+    userData["smokeaddiction"] = 18 as Int
+    userData["smokebrand"] = "smokebrand" as String
+    userData["gold"] = 19 as Int
+    userData["score"] = 124 as Int
+    userData["fish"] = 18 as Int
+    userData["shit"] = 18 as Int
+    userData["userimage"] = "useriamge" as String
+    
+    ref = db.collection("Users").addDocument(data: ["uid" : "null"])
+    { err in
+        if let err = err {
+            print("Error adding document: \(err)")
+        } else {
+            print("Document added with ID: \(ref!.documentID)")
+        }
+    }
+    
+    let tempUid = ref!.documentID
+    
+    ref?.updateData( ["uid": tempUid ])
+    { err in
+        if let err = err {
+            print("Error updating document: \(err)")
+        } else {
+            print("Document successfully updated")
+        }
+    }
+    userData["uid"] = tempUid as String
+    var refUserdata: DocumentReference? = nil
+    refUserdata = db.collection("Users").document(tempUid).collection("userdata").document("userdata")
+    refUserdata?.setData(userData)
+    { err in
+        if let err = err {
+            print("Error updating document: \(err)")
+        } else {
+            print("User Data update success")
+        }
+    }
+    
+    
+    let alertController = UIAlertController(title: "Success", message: ref!.documentID , preferredStyle: UIAlertController.Style.alert)
+    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:nil))
+    present(alertController,animated: true,completion: nil)
+    
+}
+*/
